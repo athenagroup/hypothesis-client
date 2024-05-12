@@ -5,6 +5,7 @@ import {
   VitalSourceContentIntegration,
   vitalSourceFrameRole,
 } from './vitalsource';
+import { isPdf2htmlEX, PDF2HtmlExIntegration } from "./pdf2htmlEx";
 
 /**
  * Create the integration that handles document-type specific aspects of
@@ -13,6 +14,10 @@ import {
 export function createIntegration(annotator: Annotator): Integration {
   if (isPDF()) {
     return new PDFIntegration(annotator);
+  }
+
+  if (isPdf2htmlEX()) {
+    return new PDF2HtmlExIntegration(annotator);
   }
 
   const vsFrameRole = vitalSourceFrameRole();
