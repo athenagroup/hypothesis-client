@@ -80,7 +80,7 @@ function init() {
   });
   sidebarLinkElement.addEventListener('destroy', resolveUnloadRequested);
 
-  const hostFrame = annotatorConfig.subFrameIdentifier ? window.parent : window;
+  const hostFrame = annotatorConfig.subFrameIdentifier ? window.top! : window;
 
   const destroyables = [] as Destroyable[];
 
